@@ -3,9 +3,7 @@
 
     <string name="image_description">QR Code</string>
     <string name="text_to_generate">Text to generate</string>
-
-    <string name="text_to_generate_input">Text to generate</string>
-    <string name="input_hint">What do you want the QR code to display?</string>
+    <string name="input_hint">Text to generate</string>
 
     <string name="generate_button">Generate</string>
 </resources>
