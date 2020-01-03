@@ -2,8 +2,9 @@
     <string name="app_name">QR Code Generator</string>
 
     <string name="image_description">QR Code</string>
-    <string name="text_to_generate">Text to generate</string>
+    <string name="text_to_generate">Text to generate: </string>
     <string name="input_hint">Text to generate</string>
 
     <string name="generate_button">Generate</string>
+    <string name="save_button">Save</string>
 </resources>
