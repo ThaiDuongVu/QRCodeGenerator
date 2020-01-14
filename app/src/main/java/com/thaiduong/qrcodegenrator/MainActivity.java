@@ -43,23 +43,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onSaveButtonPressed(View view){
+    public void onSaveButtonPressed(View view) {
+        saveImage();
+    }
+
+    private void saveImage() {
         BitmapDrawable drawable = (BitmapDrawable) QRImageView.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
 
-        ContextWrapper cw = new ContextWrapper(getApplicationContext());
-        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-        File file = new File(directory, "UniqueFileName" + ".jpg");
+        ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
+        File directory = contextWrapper.getDir("Pictures", Context.MODE_PRIVATE);
+        File file = new File(directory, "qr code!" + ".jpg");
 
-        FileOutputStream fos;
+        FileOutputStream fileOutputStream;
 
         try {
-            fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fileOutputStream = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, fileOutputStream);
             Toast.makeText(this, "Image saved!", Toast.LENGTH_SHORT).show();
 
-            fos.flush();
-            fos.close();
+            fileOutputStream.flush();
+            fileOutputStream.close();
         } catch (java.io.IOException e) {
             e.printStackTrace();
             Toast.makeText(this, "Exception!", Toast.LENGTH_SHORT).show();
