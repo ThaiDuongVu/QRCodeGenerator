@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView QRImageView;
 
     private Vibrator vibrator;
-    private int vibratingDuration;
+    private final int vibratingDuration = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
