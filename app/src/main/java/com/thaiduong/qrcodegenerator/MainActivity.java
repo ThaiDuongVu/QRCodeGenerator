@@ -1,4 +1,4 @@
-package com.thaiduong.qrcodegenrator;
+package com.thaiduong.qrcodegenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.content.ContextWrapper;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText generateEditText;
     private ImageView QRImageView;
 
+    private Vibrator vibrator;
+    private int vibratingDuration;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
         generateEditText = findViewById(R.id.generateEditText);
         QRImageView = findViewById(R.id.QRImageView);
+
+        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
     }
 
     @SuppressLint("ShowToast")
     public void onGenerateButtonPressed(View view) {
+        vibrator.vibrate(vibratingDuration);
         if (generateEditText.getText().toString().length() == 0) {
             Toast.makeText(this, "Text cannot be empty", Toast.LENGTH_SHORT).show();
         }
@@ -44,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSaveButtonPressed(View view) {
+        vibrator.vibrate(vibratingDuration);
         saveImage();
     }
 

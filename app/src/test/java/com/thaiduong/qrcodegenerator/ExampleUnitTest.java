@@ -1,4 +1,4 @@
-package com.thaiduong.qrcodegenrator;
+package com.thaiduong.qrcodegenerator;
 
 import org.junit.Test;
 
