@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSaveButtonPressed(View view) {
         vibrator.vibrate(vibratingDuration);
-        saveImage();
+        saveImage(QRImageView);
     }
 
-    private void saveImage() {
-        BitmapDrawable drawable = (BitmapDrawable) QRImageView.getDrawable();
+    private void saveImage(ImageView imageView) {
+        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
 
         ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
